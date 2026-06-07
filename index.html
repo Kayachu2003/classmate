@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>萱田中学校2003同窓会公式LINE 登録者一覧</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>萱田中学校2003同窓会公式LINE 登録者一覧</h1>
+      <p>3年次のクラスで絞り込みが可能です。</p>
+      <div id="dataSourceNote" class="status-note" style="display: none;"></div>
+    </header>
+
+    <div class="filter-section">
+      <div class="radio-groups" id="radioGroupsContainer">
+        </div>
+    </div>
+
+    <div class="list-wrapper">
+      <div id="loading" class="loading-overlay">
+        <div class="spinner"></div>
+        <p>データを読み込んでいます...</p>
+      </div>
+
+      <div id="emptyMessage" class="empty-message" style="display: none;">
+        条件に一致する参加者が見つかりません。
+      </div>
+
+      <div id="participantList" class="cards-container">
+        </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
