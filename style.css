@@ -1,0 +1,323 @@
+:root {
+  --primary-color: #4a90e2;
+  --bg-color: #f5f7fa;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-muted: #666666;
+  --border-color: #e1e4e8;
+  --accent-color: #e67e22; /* 新姓用のアクセントカラー */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 24px;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.status-note {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  background: #fff3cd;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ffeeba;
+  display: inline-block;
+}
+
+/* 検索・フィルターエリア */
+.filter-section {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+}
+
+.search-box {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.search-box input[type="text"] {
+  width: 100%;
+  max-width: 450px;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.search-box input[type="text"]:focus {
+  border-color: var(--accent-color); /* アイデア2: 検索時の枠線をアクセントカラーに変更 */
+}
+
+.radio-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.radio-group-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.radio-group-label {
+  font-weight: bold;
+  width: 80px;
+  color: var(--primary-color);
+}
+
+.radio-label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.radio-label:hover {
+  background-color: #f0f0f0;
+}
+
+.radio-label input[type="radio"] {
+  margin-right: 4px;
+  cursor: pointer;
+}
+
+/* リスト領域のラッパー */
+.list-wrapper {
+  position: relative;
+  min-height: 200px;
+}
+
+/* カードレイアウト (レスポンシブ対応) */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.participant-card {
+  background: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-color);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative; /* ラベルの絶対配置の基準にするため */
+}
+
+.participant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* 欠席時のカードスタイル (グレースケール化) */
+/* .participant-card.is-absent {
+  filter: grayscale(100%);
+}*/
+
+/* 出欠ステータスバッジ */
+.status-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.status-attending {
+  background-color: var(--accent-color); /* アイデア1: 出席バッジをアクセントカラーに変更 */
+  color: #fff;
+}
+
+.status-absent {
+  background-color: #95a5a6;
+  color: #fff;
+}
+
+/* カード内の装飾 */
+.card-header {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+}
+
+.name-kana {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.name-main {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--primary-color); /* メインカラー(青)に戻す */
+}
+
+.name-sei {
+  font-size: 12px;
+  color: var(--primary-color); /* メインカラー(青)に戻す */
+  margin-top: 4px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* 2カラムレイアウト (クラス情報と部活) */
+.info-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 15px;
+  margin-bottom: 15px;
+  align-items: start;
+}
+
+.class-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  background-color: #e1f0ff;
+  color: var(--primary-color);
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* 部活セクション */
+.club-info {
+  padding: 8px 12px;
+  background-color: #f4f9ff; /* メインカラーに合わせたごく薄い青に変更 */
+  border-left: 3px solid var(--primary-color); /* クラス名と同じメインカラーに統一 */
+  border-radius: 4px;
+  min-width: 0;
+}
+
+.club-label {
+  font-size: 11px;
+  color: var(--primary-color); /* クラス名と同じメインカラーに統一 */
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.club-text {
+  font-size: 13px;
+  color: var(--text-main);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  line-height: 1.5;
+}
+
+/* コメントセクション */
+.comment-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.comment-item {
+  background-color: #f9fbff;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.comment-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+.comment-text {
+  color: var(--text-main);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.empty-message {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-muted);
+  background: var(--card-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+/* ローディングオーバーレイ */
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  z-index: 10;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid var(--primary-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
