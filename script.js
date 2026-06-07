@@ -1,7 +1,7 @@
 // ==========================================
 // 設定領域
 // ==========================================
-const GAS_URL = 'https://script.google.com/macros/s/AKfycbzez8LaAvoYbRIngeH4fgp9Qk5EIZDzgqF95xUJ759Xhp4LJ8Zfjx3HAE4hOGNu034wCg/exec';
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbxHE36glu--AHz2Iq8apvgEUwkYUzIbnWTkJofYHS6le9QPvhuxFLpoV9V4joKUPl7tJQ/exec';
 const classes = ['A', 'B', 'C'];
 let allParticipants = [];
 
